@@ -12,24 +12,18 @@ import { faBook,faUser,faContactBook, faSearch, faTrowel, faHamburger ,faAmbulan
 })
 export class AppComponent {
 
+  
   searchIcon = faSearch;
+  faHamburger = faHamburger;
 
-  trippIcon = faHamburger;
-
-  userIcon = faUser;
-
-  leftNavItems:Array<{ title:string,icon:any}> = [
+  left_nav_lis_item:Array<{title:string,icon:any}> = [
     {
-      title:'Gallery',
+      title:'books',
       icon:faBook
     },
     {
       title:'Users',
-      icon:faUser,
-    },
-    {
-      title:'Contact Us',
-      icon:faContactBook
+      icon:faUser
     },
     {
       title:'test1',
@@ -44,13 +38,11 @@ export class AppComponent {
       icon:faAnchorCircleCheck
     }
   ]
-  constructor(private apiService: APIService) {
-   
-  }
 
 
   showLeftNav:boolean = true;
-  hideAndShowLeftNav() {
-      this.showLeftNav = !this.showLeftNav;
+
+  showAndHideLeftNav() {
+    this.showLeftNav = !this.showLeftNav;
   }
 }

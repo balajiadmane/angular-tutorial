@@ -1,49 +1,62 @@
-<div class="admin-layout" 
 
-  [ngStyle]="{
 
-    'grid-template-columns':showLeftNav?'20% 80%':'5% 95%'
-  }"
+<div class="admin-layout"
+
+[ngStyle]="{
+
+  'grid-template-columns':showLeftNav?'20% 80%':'5% 95%'
+}"
 >
-  <div class="left-nav">
-    <div class="brand">
-      <h2 [ngStyle]="{'font-size':showLeftNav?'30px':'15px'}">Brand name</h2>
-    </div>
-    <div class="search-box">
-      <input type="text" *ngIf="showLeftNav" placeholder="Search..." name="" id="" />
-      <fa-icon [icon]="searchIcon"></fa-icon>
-    </div>
 
+  <!-- for left nav -->
+  <div class="left-nav">
+
+    <!-- for brand name -->
+    <div class="brand">
+      <h2 
+      [ngStyle]="{
+
+        'font-size':showLeftNav?'30px':'10px'
+      }"
+      >
+        Brand name
+      </h2>
+    </div>
+    <!-- for search input -->
+    <div class="search">
+        <input type="text" name="" *ngIf="showLeftNav" placeholder="Search item...." id="">
+        <fa-icon [icon]="searchIcon"></fa-icon>
+    </div>
+      <!-- for list item  -->
     <ol>
-      <li *ngFor="let item of leftNavItems">
-        <div class="left-nav-item">
-          <span>
-            <fa-icon [icon]="item.icon"></fa-icon>
-          </span>
+      <li *ngFor="let item of left_nav_lis_item">
+        <div class="left-nav-list-item">
+          <fa-icon [icon]="item.icon"></fa-icon>
           <span *ngIf="showLeftNav">
-            {{ item.title }}
+            {{
+              item.title
+            }}
           </span>
         </div>
       </li>
     </ol>
-
-    <div class="user-info">
-        <fa-icon [icon]="userIcon"></fa-icon>
-        <b *ngIf="showLeftNav">
-            Hello, Balaji
-        </b>
-    </div>
+    
   </div>
 
-  <div class="main-content">
-    <div class="content-menu">
-          <button (click)="hideAndShowLeftNav()">
-            <fa-icon [icon]="trippIcon"></fa-icon>
-          </button>
-    </div>
+  <!-- for content -->
+  <div class="content">
+   
+    <div class="main-content-nav">
+      <button (click)="showAndHideLeftNav()">
+        <fa-icon [icon]="faHamburger"></fa-icon>
+      </button>
+  </div>
 
-    <div class="content">
+    
+      <div class="content-outlet">
 
-    </div>
+      </div>
+
+   
   </div>
 </div>
