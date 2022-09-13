@@ -3,7 +3,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { debounceTime, delay, distinctUntilChanged, switchMap } from 'rxjs'
 import { APIService } from './api.service'
-import { faBook,faUser,faContactBook, faSearch, faTrowel } from '@fortawesome/free-solid-svg-icons';
+import { faBook,faUser,faContactBook, faSearch, faTrowel, faHamburger ,faAmbulance,faAnchorCircleCheck} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
 
   searchIcon = faSearch;
 
-  trippIcon = faTrowel;
+  trippIcon = faHamburger;
 
   userIcon = faUser;
 
@@ -30,9 +30,27 @@ export class AppComponent {
     {
       title:'Contact Us',
       icon:faContactBook
+    },
+    {
+      title:'test1',
+      icon:faTrowel
+    },
+    {
+      title:'test2',
+      icon:faAmbulance
+    },
+    {
+      title:'test3',
+      icon:faAnchorCircleCheck
     }
   ]
   constructor(private apiService: APIService) {
    
+  }
+
+
+  showLeftNav:boolean = true;
+  hideAndShowLeftNav() {
+      this.showLeftNav = !this.showLeftNav;
   }
 }
