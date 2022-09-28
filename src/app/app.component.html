@@ -1,62 +1,66 @@
-
-
-<div class="admin-layout"
-
-[ngStyle]="{
+<div class="admin-layout" [ngStyle]="{
 
   'grid-template-columns':showLeftNav?'20% 80%':'5% 95%'
-}"
->
+}">
 
   <!-- for left nav -->
   <div class="left-nav">
 
     <!-- for brand name -->
     <div class="brand">
-      <h2 
-      [ngStyle]="{
+      <h2 [ngStyle]="{
 
         'font-size':showLeftNav?'30px':'10px'
-      }"
-      >
+      }">
         Brand name
       </h2>
     </div>
     <!-- for search input -->
-    <div class="search">
-        <input type="text" name="" *ngIf="showLeftNav" placeholder="Search item...." id="">
-        <fa-icon [icon]="searchIcon"></fa-icon>
+    <div class="search" [ngStyle]="{'text-align':showLeftNav?'':'center'}">
+      <input type="text" name="" *ngIf="showLeftNav" placeholder="Search item...." id="">
+      <fa-icon [icon]="searchIcon"></fa-icon>
     </div>
-      <!-- for list item  -->
+    <!-- for list item  -->
     <ol>
-      <li *ngFor="let item of left_nav_lis_item">
+      <li *ngFor="let item of left_nav_lis_item;let i=index;" [routerLink]="item.url" routerLinkActive="active-link">
         <div class="left-nav-list-item">
-          <fa-icon [icon]="item.icon"></fa-icon>
+          <fa-icon [ngStyle]="{'margin-left':showLeftNav?'':'10px'}" [icon]="item.icon"></fa-icon>
           <span *ngIf="showLeftNav">
             {{
-              item.title
+            item.title
             }}
           </span>
         </div>
       </li>
     </ol>
-    
+
   </div>
 
   <!-- for content -->
   <div class="content">
-   
+
     <div class="main-content-nav">
       <button (click)="showAndHideLeftNav()">
         <fa-icon [icon]="faHamburger"></fa-icon>
       </button>
-  </div>
 
-    
-      <div class="content-outlet">
-
+      <div>
+        <h3>Title</h3>
       </div>
 
-   
+      <div class="user-info">
+        <fa-icon [icon]="userIcon"></fa-icon>
+        <b>Hello,Balaji</b>
+      </div>
+    </div>
+
+
+    <div class="content-outlet">
+
+      <router-outlet>
+
+      </router-outlet>
+    
+    </div>
   </div>
 </div>
